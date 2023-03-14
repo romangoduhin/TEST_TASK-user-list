@@ -1,11 +1,6 @@
-import React from "react";
+import {HandleClick, Id} from "../../../../globalTypes";
 
-
-export type Id = number;
-
-export type HandleClick = React.MouseEvent<HTMLButtonElement>;
-
-export interface Props {
+export interface RemoveButtonProps {
     id: Id,
-    onClick: (e: HandleClick, id: Id) => void
+    onClick: (e: HandleClick, id: Id) => void,
 }

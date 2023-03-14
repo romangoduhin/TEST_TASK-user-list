@@ -1,6 +1,6 @@
-export interface Props {
+export interface IconButtonProps {
     width: string,
     height: string,
     src: string,
-    onClick: () => void
+    onClick: () => void,
 }

@@ -1,19 +1,17 @@
 import React from "react";
-import {Props} from "./Item.types";
+import {ItemProps} from "./Item.types";
 import styles from "./Item.module.scss";
 import Avatar from "./Avatar/Avatar";
 import Info from "./Info/Info";
 import RemoveButton from "./RemoveButton/RemoveButton";
 
 
-function Item({searchValue, data, onClick, onRemove}: Props) {
-    const {name, username, email, id, company, address} = data;
-
+function Item({searchValue, data, onClick, onRemove}: ItemProps): JSX.Element {
     return (
-        <li className={styles.item} onClick={() => onClick(company, address)}>
+        <li className={styles.item} onClick={() => onClick(data)}>
             <Avatar/>
-            <Info searchValue={searchValue} name={name} username={username} email={email}/>
-            <RemoveButton id={id} onClick={onRemove}/>
+            <Info searchValue={searchValue} name={data.name} username={data.username} email={data.email}/>
+            <RemoveButton id={data.id} onClick={onRemove}/>
         </li>
     );
 }

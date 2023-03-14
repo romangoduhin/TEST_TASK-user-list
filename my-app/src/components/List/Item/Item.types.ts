@@ -1,13 +1,9 @@
-import React from "react";
-import {User, UserAddress, UserCompany} from "../../../redux/types";
+import {User} from "../../../redux/types";
+import {HandleClick, Id} from "../../../globalTypes";
 
-export type Id = number;
-
-export type HandleClick = React.MouseEvent<HTMLButtonElement>
-
-export interface Props {
+export interface ItemProps {
     searchValue: string,
     data: User,
-    onClick: (company: UserCompany, address: UserAddress) => void,
-    onRemove: (e: HandleClick, id: Id) => void
+    onClick: (user: User) => void,
+    onRemove: (e: HandleClick, id: Id) => void,
 }

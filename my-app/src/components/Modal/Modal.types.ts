@@ -1,6 +1,7 @@
-import {ModalUserInfo} from "../../redux/types";
+import {User} from "../../redux/types";
 
-export type Props = {
-    data: ModalUserInfo,
-    onClose: () => void
+export type ModalProps = {
+    isOpen: boolean,
+    data: User | null,
+    onClose: () => void,
 }

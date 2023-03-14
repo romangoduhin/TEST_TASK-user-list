@@ -1,4 +1,4 @@
-export interface Props {
+export interface HeaderProps {
     searchValue: string,
     setSearchValue: (value: string) => void,
 }

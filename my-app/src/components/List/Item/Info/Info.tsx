@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Info.module.scss";
-import MarkedText from "../MarkedText/MarkedText";
-import {Props} from "./Info.types";
+import {InfoProps} from "./Info.types";
+import InfoField from "./InfoField/InfoField";
 
 
-function Info({searchValue, name, username, email}: Props) {
+function Info({searchValue, name, username, email}: InfoProps): JSX.Element {
     const fields = [
         {
             label: "Name: ",
@@ -23,10 +23,7 @@ function Info({searchValue, name, username, email}: Props) {
     return (
         <div className={styles.info}>
             {fields.map(field => (
-                <div>
-                    <span>{field.label}</span>
-                    <MarkedText innerValue={field.value} searchValue={searchValue}/>
-                </div>
+                <InfoField key={field.value} data={field} searchValue={searchValue}/>
             ))}
         </div>
     );

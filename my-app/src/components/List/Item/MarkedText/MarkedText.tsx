@@ -1,8 +1,8 @@
 import React from 'react';
-import {Props} from "./MarkedText.types";
+import {MarkedTextProps} from "./MarkedText.types";
 
 
-function MarkedText({innerValue, searchValue}: Props) {
+function MarkedText({innerValue, searchValue}: MarkedTextProps): JSX.Element {
     if (searchValue === "") return <p>{innerValue}</p>
 
     const isIncludes = innerValue.includes(searchValue);
