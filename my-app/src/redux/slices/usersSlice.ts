@@ -34,8 +34,16 @@ export const usersSlice = createSlice({
             state.status.errorMessage = message;
             state.status.isLoading = false;
         },
+        removeUserById: (state, action: PayloadAction<number>) => {
+            const id = action.payload;
+            const {users} = state;
+
+            const filteredUsers = users.filter(user => user.id !== id)
+
+            state.users = filteredUsers;
+        },
     }
 });
 
-export const {requestUsersStart, requestUsersSuccess, requestUsersFailed} = usersSlice.actions;
+export const {requestUsersStart, requestUsersSuccess, requestUsersFailed, removeUserById} = usersSlice.actions;
 export default usersSlice.reducer;

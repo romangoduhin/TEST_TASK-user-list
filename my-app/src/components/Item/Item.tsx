@@ -4,7 +4,9 @@ import styles from "./Item.module.scss";
 import UserIcon from "../../assets/user.svg";
 
 
-function Item({data}: Props) {
+function Item({data, onRemove}: Props) {
+    const {name, username, email, id} = data;
+
     return (
         <li className={styles.item}>
             <div className={styles.avatar}>
@@ -12,11 +14,12 @@ function Item({data}: Props) {
             </div>
 
             <div className={styles.info}>
-                <p>{data.name}</p>
-                <p>{data.username}</p>
-                <p>{data.email}</p>
+                <p>{name}</p>
+                <p>{username}</p>
+                <p>{email}</p>
             </div>
 
+            <button className={styles.removeButton} onClick={() => onRemove(id)}>Remove</button>
         </li>
     );
 }

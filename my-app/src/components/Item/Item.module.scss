@@ -10,10 +10,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   border-radius: 16px;
   background-color: $lightBlue;
-  cursor: pointer;
 
   &:hover {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -45,6 +44,21 @@
       font-weight: 500;
       font-size: 20px;
       line-height: 25px;
+    }
+  }
+
+  .removeButton {
+    width: 10%;
+    height: 50%;
+    font-weight: 500;
+    font-size: 15px;
+    color: $blue;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+
+    &:hover {
+      color: $darkBlue;
     }
   }
 }
