@@ -1,0 +1,11 @@
+@import "./src/assets/variables";
+@import "./src/assets/mixins";
+
+
+.list {
+  width: 80%;
+  min-height: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
