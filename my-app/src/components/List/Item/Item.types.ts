@@ -1,4 +1,4 @@
-import {User} from "../../redux/types";
+import {User} from "../../../redux/types";
 
 export type Id = number;
 

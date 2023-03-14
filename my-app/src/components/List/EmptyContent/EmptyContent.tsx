@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styles from "./EmptyContent.module.scss";
 import {Props} from "./EmptyContent.types";
 

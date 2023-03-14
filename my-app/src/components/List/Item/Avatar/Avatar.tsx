@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Avatar.module.scss";
-import UserIcon from "../../../assets/user.svg";
+import UserIcon from "../../../../assets/user.svg";
 
 
 function Avatar() {

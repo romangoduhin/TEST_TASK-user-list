@@ -1,6 +1,6 @@
 import React from "react";
 import {Id, Props} from "./List.types";
-import Item from "../Item/Item";
+import Item from "./Item/Item";
 import styles from "./List.module.scss";
 import {useAppDispatch} from "../../redux/hooks";
 import {removeUserById} from "../../redux/slices/usersSlice";
