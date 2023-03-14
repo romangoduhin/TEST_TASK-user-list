@@ -6,18 +6,20 @@ import {useAppDispatch} from "../../redux/hooks";
 import {removeUserById} from "../../redux/slices/usersSlice";
 
 
-function List({data}: Props) {
+function List({data, value}: Props) {
     const dispatch = useAppDispatch();
 
     function onRemove(id: number) {
         dispatch(removeUserById(id))
     }
 
-    if (!data) return <div>Nothing to show</div>
+    const filteredData = data?.filter(el => el.name.includes(value) || el.username.includes(value) || el.email.includes(value));
+
+    if (!filteredData) return <div>Nothing to show</div>
 
     return (
         <ul className={styles.list}>
-            {data.map(item => <Item key={item.id} data={item} onRemove={onRemove}/>)}
+            {filteredData.map(item => <Item key={item.id} data={item} onRemove={onRemove}/>)}
         </ul>
     );
 }

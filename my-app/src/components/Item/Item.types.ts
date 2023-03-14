@@ -2,5 +2,5 @@ import {User} from "../../redux/types";
 
 export interface Props {
     data: User,
-    onRemove: () => void
+    onRemove: (id: number) => void
 }

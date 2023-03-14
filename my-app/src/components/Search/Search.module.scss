@@ -1,0 +1,21 @@
+@import "./src/assets/variables";
+@import "./src/assets/mixins";
+
+
+.searchInput {
+  width: 80%;
+  height: 20vh;
+  @include flexCenter(row);
+  justify-content: flex-start;
+
+  input {
+    padding: 0 10px;
+    width: 50%;
+    height: 50%;
+    font-size: 20px;
+    border: 1px solid $blue;
+    border-radius: 8px;
+    background-color: $lightBlue;
+    outline: none;
+  }
+}

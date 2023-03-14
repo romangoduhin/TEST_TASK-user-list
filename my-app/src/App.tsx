@@ -1,14 +1,17 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "./redux/hooks";
 import {setUsersThunk} from "./redux/thunks";
 import List from "./components/List/List";
 import styles from "./App.module.scss";
+import Search from "./components/Search/Search";
 
 
 function App() {
     const dispatch = useAppDispatch();
 
     const {users, status} = useAppSelector(state => state.users);
+
+    const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
         dispatch(setUsersThunk());
@@ -20,7 +23,8 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <List data={users}/>
+            <Search value={searchValue} setValue={setSearchValue}/>
+            <List value={searchValue} data={users}/>
         </div>
     )
 }
