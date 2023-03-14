@@ -21,10 +21,45 @@
     }
 
     p {
+      width: 100%;
+      text-align: center;
       font-style: normal;
       font-weight: 500;
       font-size: 20px;
       line-height: 25px;
+      @include cutToEllipses();
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .info {
+    width: 50%;
+    height: 150px;
+    flex-direction: column;
+
+    div {
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      p {
+        width: 100%;
+        @include cutToEllipses();
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .info {
+    width: 70%;
+
+    div {
+      p {
+        font-size: 17px;
+        line-height: 20px;
+      }
     }
   }
 }

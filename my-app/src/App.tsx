@@ -18,22 +18,22 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     function onOpenModal(company: UserCompany, address: UserAddress) {
-        dispatch(setModalUserInfo({company, address}))
+        dispatch(setModalUserInfo({company, address}));
     }
 
     function onCloseModal() {
-        dispatch(removeModalUserInfo())
+        dispatch(removeModalUserInfo());
     }
 
     useEffect(() => {
-        const {address, company} = modalUserInfo
+        const {address, company} = modalUserInfo;
 
         if (address && company) {
-            setIsModalOpen(true)
-            return
+            setIsModalOpen(true);
+            return;
         }
 
-        setIsModalOpen(false)
+        setIsModalOpen(false);
     }, [modalUserInfo]);
 
     useEffect(() => {

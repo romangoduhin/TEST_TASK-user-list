@@ -25,9 +25,8 @@
     @include flexCenter(column);
     row-gap: 10px;
 
-
     .closeButtonWrapper {
-      width: 40%;
+      width: 60%;
       height: auto;
       display: flex;
       justify-content: flex-end;
@@ -41,10 +40,11 @@
     }
 
     .content {
-      width: 40%;
+      width: 60%;
       min-height: 20%;
       height: auto;
       @include flexCenter(column);
+      text-align: center;
       @include borderedCard();
 
       p {
@@ -56,6 +56,20 @@
         span {
           font-weight: 600;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .modal {
+    .contentWrapper {
+      .closeButtonWrapper {
+        width: 80%;
+      }
+
+      .content {
+        width: 80%;
       }
     }
   }

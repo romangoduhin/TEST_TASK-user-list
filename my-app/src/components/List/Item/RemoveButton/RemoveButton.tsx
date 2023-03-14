@@ -5,7 +5,7 @@ import {Props} from "./RemoveButton.types";
 
 function RemoveButton({id, onClick}: Props) {
     return (
-        <button className={styles.removeButton} onClick={(e) => onClick(e,id)}>Remove</button>
+        <button className={styles.removeButton} onClick={(e) => onClick(e, id)}>Remove</button>
     );
 }
 

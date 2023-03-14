@@ -5,7 +5,7 @@ import {Props} from "./Info.types";
 
 
 function Info({searchValue, name, username, email}: Props) {
-    const items = [
+    const fields = [
         {
             label: "Name: ",
             value: name,
@@ -22,10 +22,10 @@ function Info({searchValue, name, username, email}: Props) {
 
     return (
         <div className={styles.info}>
-            {items.map(item => (
+            {fields.map(field => (
                 <div>
-                    <span>{item.label}</span>
-                    <MarkedText innerValue={item.value} searchValue={searchValue}/>
+                    <span>{field.label}</span>
+                    <MarkedText innerValue={field.value} searchValue={searchValue}/>
                 </div>
             ))}
         </div>

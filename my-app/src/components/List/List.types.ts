@@ -9,6 +9,6 @@ export interface Props {
     onItemClick: (company: UserCompany, address: UserAddress) => void,
 }
 
-export type HandleClick = React.MouseEvent<HTMLButtonElement>
+export type HandleClick = React.MouseEvent<HTMLButtonElement>;
 
 export type Id = number;

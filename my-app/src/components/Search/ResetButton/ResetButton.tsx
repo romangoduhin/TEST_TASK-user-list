@@ -9,4 +9,5 @@ function ResetButton({onClick}: Props) {
         <IconButton width="40px" height="40px" src={RefreshIcon} onClick={onClick}/>
     );
 }
+
 export default ResetButton;

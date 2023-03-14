@@ -1,5 +1,5 @@
-import {User, UserAddress, UserCompany} from "../../../redux/types";
 import React from "react";
+import {User, UserAddress, UserCompany} from "../../../redux/types";
 
 export type Id = number;
 

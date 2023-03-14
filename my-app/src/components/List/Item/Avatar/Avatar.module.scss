@@ -10,3 +10,9 @@
     height: 50%;
   }
 }
+
+@media screen and (max-width: 730px) {
+  .avatar {
+    display: none;
+  }
+}

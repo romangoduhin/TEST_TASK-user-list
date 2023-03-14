@@ -9,6 +9,17 @@ import IconButton from "../IconButton/IconButton";
 function Modal({data, onClose}: Props) {
     const {address, company} = data;
 
+    const fields = [
+        {
+            label: "Company: ",
+            value: company?.name,
+        },
+        {
+            label: "Address: ",
+            value: `${address?.city} ${address?.street} ${address?.suite} ${address?.zipcode}`,
+        },
+    ]
+
     return (
         <Portal>
             <div className={styles.modal}>
@@ -19,15 +30,12 @@ function Modal({data, onClose}: Props) {
                     </div>
 
                     <div className={styles.content}>
-                        <p>
-                            <span>Company: </span>
-                            {company?.name}
-                        </p>
-
-                        <p>
-                            <span>Address: </span>
-                            {address?.city} {address?.street} {address?.suite} {address?.zipcode}
-                        </p>
+                        {fields.map(field => (
+                            <p>
+                                <span>{field.label}</span>
+                                {field.value}
+                            </p>
+                        ))}
                     </div>
                 </div>
             </div>
