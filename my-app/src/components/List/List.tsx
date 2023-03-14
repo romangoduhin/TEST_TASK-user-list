@@ -13,7 +13,7 @@ function List({data, searchValue}: Props) {
         dispatch(removeUserById(id))
     }
 
-    if (!data) return <div>Nothing to show</div>
+    if (!data) return <div className={styles.emptyContent}>Nothing to show</div>
 
     return (
         <ul className={styles.list}>
