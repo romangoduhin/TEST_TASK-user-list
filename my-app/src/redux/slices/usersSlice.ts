@@ -19,7 +19,6 @@ export const usersSlice = createSlice({
         requestUsersStart: (state) => {
             state.status.isError = false;
             state.status.errorMessage = null;
-
             state.status.isLoading = true;
         },
         requestUsersSuccess: (state, action: PayloadAction<Users>) => {
@@ -33,7 +32,6 @@ export const usersSlice = createSlice({
 
             state.status.isError = true;
             state.status.errorMessage = message;
-
             state.status.isLoading = false;
         },
     }

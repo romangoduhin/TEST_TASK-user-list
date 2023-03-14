@@ -10,7 +10,6 @@ export const setUsersThunk = () => async (dispatch: Dispatch) => {
         const users = await usersAPI.getUsers();
 
         dispatch(requestUsersSuccess(users));
-
     } catch (err) {
         if (err instanceof Error) {
             const errorMessage = err.message;
