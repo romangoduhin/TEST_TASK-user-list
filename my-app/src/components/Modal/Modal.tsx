@@ -2,7 +2,7 @@ import React from "react";
 import Portal from "./Portal/Portal";
 import styles from "./Modal.module.scss";
 import {Props} from "./Modal.types";
-import CloseIcon from "../../assets/closeIcon.svg";
+import CloseIcon from "../../assets/icons/closeIcon.svg";
 import IconButton from "../IconButton/IconButton";
 
 

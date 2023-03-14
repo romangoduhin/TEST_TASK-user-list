@@ -1,7 +1,7 @@
 import React from "react";
 import {Props} from "./ResetButton.types";
 import IconButton from "../../IconButton/IconButton";
-import RefreshIcon from "../../../assets/refreshIcon.svg";
+import RefreshIcon from "../../../assets/icons/refreshIcon.svg";
 
 
 function ResetButton({onClick}: Props) {
