@@ -19,7 +19,6 @@ export const usersSlice = createSlice({
         requestUsersStart: (state) => {
             state.status.isError = false;
             state.status.errorMessage = null;
-
             state.status.isLoading = true;
         },
         requestUsersSuccess: (state, action: PayloadAction<Users>) => {
@@ -33,11 +32,18 @@ export const usersSlice = createSlice({
 
             state.status.isError = true;
             state.status.errorMessage = message;
-
             state.status.isLoading = false;
+        },
+        removeUserById: (state, action: PayloadAction<number>) => {
+            const id = action.payload;
+            const {users} = state;
+
+            const filteredUsers = users.filter(user => user.id !== id)
+
+            state.users = filteredUsers;
         },
     }
 });
 
-export const {requestUsersStart, requestUsersSuccess, requestUsersFailed} = usersSlice.actions;
+export const {requestUsersStart, requestUsersSuccess, requestUsersFailed, removeUserById} = usersSlice.actions;
 export default usersSlice.reducer;

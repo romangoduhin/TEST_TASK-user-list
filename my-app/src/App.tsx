@@ -1,6 +1,8 @@
-import {useEffect} from 'react';
+import {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "./redux/hooks";
 import {setUsersThunk} from "./redux/thunks";
+import List from "./components/List/List";
+import styles from "./App.module.scss";
 
 
 function App() {
@@ -17,8 +19,8 @@ function App() {
     if (status.isLoading) return <div>Loading</div>
 
     return (
-        <div>
-            {JSON.stringify(users)}
+        <div className={styles.app}>
+            <List data={users}/>
         </div>
     )
 }
