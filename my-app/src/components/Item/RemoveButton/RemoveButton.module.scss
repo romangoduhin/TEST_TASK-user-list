@@ -1,0 +1,18 @@
+@import "./src/assets/variables";
+@import "./src/assets/mixins";
+
+
+.removeButton {
+  width: 10%;
+  height: 50%;
+  font-weight: 500;
+  font-size: 15px;
+  color: $blue;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $darkBlue;
+  }
+}

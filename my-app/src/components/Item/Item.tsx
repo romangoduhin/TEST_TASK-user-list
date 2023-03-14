@@ -1,8 +1,9 @@
 import React from "react";
 import {Props} from "./Item.types";
 import styles from "./Item.module.scss";
-import UserIcon from "../../assets/user.svg";
-import MarkedText from "./MarkedText/MarkedText";
+import Avatar from "./Avatar/Avatar";
+import Info from "./Info/Info";
+import RemoveButton from "./RemoveButton/RemoveButton";
 
 
 function Item({searchValue, data, onRemove}: Props) {
@@ -10,17 +11,9 @@ function Item({searchValue, data, onRemove}: Props) {
 
     return (
         <li className={styles.item}>
-            <div className={styles.avatar}>
-                <img src={UserIcon} alt="user icon"/>
-            </div>
-
-            <div className={styles.info}>
-                <MarkedText innerValue={name} searchValue={searchValue}/>
-                <MarkedText innerValue={username} searchValue={searchValue}/>
-                <MarkedText innerValue={email} searchValue={searchValue}/>
-            </div>
-
-            <button className={styles.removeButton} onClick={() => onRemove(id)}>Remove</button>
+            <Avatar/>
+            <Info searchValue={searchValue} name={name} username={username} email={email}/>
+            <RemoveButton id={id} onRemove={onRemove}/>
         </li>
     );
 }
