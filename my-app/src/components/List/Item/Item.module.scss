@@ -1,4 +1,5 @@
 @import "./src/assets/variables";
+@import "./src/assets/mixins";
 
 
 .item {
@@ -10,10 +11,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid $blue;
-  border-radius: 16px;
-  background-color: $lightBlue;
-  cursor: pointer;
+  @include borderedCard();
 
   &:hover {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

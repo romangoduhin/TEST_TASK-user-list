@@ -19,8 +19,15 @@ function Modal({data, onClose}: Props) {
                     </div>
 
                     <div className={styles.content}>
-                        <p>{company?.name}</p>
-                        <p>{address?.city} {address?.street} {address?.suite} {address?.zipcode}</p>
+                        <p>
+                            <span>Company: </span>
+                            {company?.name}
+                        </p>
+
+                        <p>
+                            <span>Address: </span>
+                            {address?.city} {address?.street} {address?.suite} {address?.zipcode}
+                        </p>
                     </div>
                 </div>
             </div>

@@ -9,13 +9,22 @@
   justify-content: space-between;
   align-items: start;
 
-  p {
-    @include flexCenter(row);
+  div {
     width: calc(100% / 3);
     height: 100%;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 25px;
+    @include flexCenter(column);
+
+    span {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 25px;
+    }
   }
 }

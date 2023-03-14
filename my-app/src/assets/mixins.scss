@@ -16,3 +16,10 @@
   background-color: inherit;
   cursor: pointer;
 }
+
+@mixin borderedCard() {
+  border: 1px solid $blue;
+  border-radius: 16px;
+  background-color: $lightBlue;
+  cursor: pointer;
+}

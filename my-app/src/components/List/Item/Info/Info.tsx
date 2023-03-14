@@ -7,9 +7,20 @@ import {Props} from "./Info.types";
 function Info({searchValue, name, username, email}: Props) {
     return (
         <div className={styles.info}>
-            <MarkedText innerValue={name} searchValue={searchValue}/>
-            <MarkedText innerValue={username} searchValue={searchValue}/>
-            <MarkedText innerValue={email} searchValue={searchValue}/>
+            <div>
+                <span>Name:</span>
+                <MarkedText innerValue={name} searchValue={searchValue}/>
+            </div>
+
+            <div>
+                <span>Username:</span>
+                <MarkedText innerValue={username} searchValue={searchValue}/>
+            </div>
+
+            <div>
+                <span>Email:</span>
+                <MarkedText innerValue={email} searchValue={searchValue}/>
+            </div>
         </div>
     );
 }

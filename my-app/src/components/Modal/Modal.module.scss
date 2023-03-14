@@ -45,16 +45,17 @@
       min-height: 20%;
       height: auto;
       @include flexCenter(column);
-      border: 1px solid $blue;
-      border-radius: 16px;
-      background-color: $lightBlue;
-      pointer-events: none;
+      @include borderedCard();
 
       p {
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
         line-height: 25px;
+
+        span {
+          font-weight: 600;
+        }
       }
     }
   }
