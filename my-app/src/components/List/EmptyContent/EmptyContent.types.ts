@@ -1,6 +1,6 @@
 import React from "react";
 
 
-export interface Props {
+export interface EmptyContentProps {
     children: React.ReactNode,
 }

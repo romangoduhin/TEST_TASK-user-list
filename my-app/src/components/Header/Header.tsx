@@ -1,19 +1,19 @@
 import React from "react";
-import styles from "./Search.module.scss";
-import {Props} from "./Search.types";
+import styles from "./Header.module.scss";
+import {HeaderProps} from "./Header.types";
 import ResetButton from "./ResetButton/ResetButton";
 import {useAppDispatch} from "../../redux/hooks";
-import {setUsersThunk} from "../../redux/thunks";
+import {getUsers} from "../../redux/thunks";
 import Input from "./Input/Input";
 
 
-function Search({searchValue, setSearchValue}: Props) {
+function Header({searchValue, setSearchValue}: HeaderProps): JSX.Element {
     const dispatch = useAppDispatch();
 
-    function onReset() {
+    function onReset(): void {
         setSearchValue('');
 
-        dispatch(setUsersThunk());
+        dispatch(getUsers());
     }
 
     return (
@@ -24,4 +24,4 @@ function Search({searchValue, setSearchValue}: Props) {
     );
 }
 
-export default Search;
+export default Header;

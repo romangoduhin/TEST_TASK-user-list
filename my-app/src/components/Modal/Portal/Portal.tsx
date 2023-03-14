@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom";
-import {Props} from "./Portal.types";
+import {PortalProps} from "./Portal.types";
 
 
-function Portal({children}: Props) {
+function Portal({children}: PortalProps) {
     return ReactDOM.createPortal(children, document.getElementById("modal-root")!);
 }
 

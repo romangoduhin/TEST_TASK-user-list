@@ -2,8 +2,9 @@ import {Dispatch} from '@reduxjs/toolkit';
 import usersAPI from "../services/api/usersApi";
 import {requestUsersFailed, requestUsersStart, requestUsersSuccess} from "./slices/usersSlice";
 
+const DEFAULT_ERROR_MESSAGE = "Something went wrong!"
 
-export const setUsersThunk = () => async (dispatch: Dispatch) => {
+export const getUsers = () => async (dispatch: Dispatch): Promise<any> => {
     dispatch(requestUsersStart());
 
     try {
@@ -11,11 +12,7 @@ export const setUsersThunk = () => async (dispatch: Dispatch) => {
 
         dispatch(requestUsersSuccess(users));
     } catch (err) {
-        if (err instanceof Error) {
-            const errorMessage = err.message;
-
-            dispatch(requestUsersFailed(errorMessage));
-        }
+        dispatch(requestUsersFailed(DEFAULT_ERROR_MESSAGE));
     }
 };
 

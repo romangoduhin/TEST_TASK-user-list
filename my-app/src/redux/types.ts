@@ -1,6 +1,6 @@
 export interface UserGeo {
     lat: string,
-    lng: string
+    lng: string,
 }
 
 export interface UserAddress {
@@ -8,13 +8,13 @@ export interface UserAddress {
     street: string,
     suite: string,
     zipcode: string,
-    geo: UserGeo
+    geo: UserGeo,
 }
 
 export interface UserCompany {
     bs: string,
     catchPhrase: string,
-    name: string
+    name: string,
 }
 
 export interface User {
@@ -25,7 +25,7 @@ export interface User {
     name: string,
     phone: string,
     username: string,
-    website: string
+    website: string,
 }
 
 export interface Status {
@@ -34,15 +34,8 @@ export interface Status {
     errorMessage: string | null,
 }
 
-export type Users = Array<User>;
-
-export interface ModalUserInfo {
-    address: UserAddress | null,
-    company: UserCompany | null
-}
-
-export interface InitialState {
-    users: Users | null,
+export interface State {
+    users: User[] | null,
     status: Status,
-    modalUserInfo: ModalUserInfo
+    selectedUser: User | null,
 }

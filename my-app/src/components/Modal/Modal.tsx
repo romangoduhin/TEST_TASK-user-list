@@ -1,22 +1,23 @@
 import React from "react";
 import Portal from "./Portal/Portal";
 import styles from "./Modal.module.scss";
-import {Props} from "./Modal.types";
+import {ModalProps} from "./Modal.types";
 import CloseIcon from "../../assets/icons/closeIcon.svg";
 import IconButton from "../IconButton/IconButton";
+import ModalField from "./ModalField/ModalField";
 
 
-function Modal({data, onClose}: Props) {
-    const {address, company} = data;
+function Modal({isOpen, data, onClose}: ModalProps): JSX.Element | null {
+    if (!isOpen || !data) return null;
 
     const fields = [
         {
             label: "Company: ",
-            value: company?.name,
+            value: `${data.company.name}`,
         },
         {
             label: "Address: ",
-            value: `${address?.city} ${address?.street} ${address?.suite} ${address?.zipcode}`,
+            value: `${data.address.city} ${data.address.street} ${data.address.suite} ${data.address.zipcode}`,
         },
     ]
 
@@ -31,10 +32,7 @@ function Modal({data, onClose}: Props) {
 
                     <div className={styles.content}>
                         {fields.map(field => (
-                            <p>
-                                <span>{field.label}</span>
-                                {field.value}
-                            </p>
+                            <ModalField key={field.value} data={field}/>
                         ))}
                     </div>
                 </div>

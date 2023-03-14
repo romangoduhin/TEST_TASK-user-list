@@ -1,44 +1,41 @@
 import type {PayloadAction} from '@reduxjs/toolkit';
 import {createSlice} from '@reduxjs/toolkit';
-import {InitialState, ModalUserInfo, Users} from '../types';
+import {User, State} from '../types';
 
 
-const initialState: InitialState = {
+const initialState: State = {
     users: null,
     status: {
         isLoading: false,
         isError: false,
         errorMessage: null
     },
-    modalUserInfo: {
-        address: null,
-        company: null,
-    }
+    selectedUser: null
 };
 
 export const usersSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
-        requestUsersStart: (state) => {
+        requestUsersStart: (state: State) => {
             state.status.isError = false;
             state.status.errorMessage = null;
             state.status.isLoading = true;
         },
-        requestUsersSuccess: (state, action: PayloadAction<Users>) => {
+        requestUsersSuccess: (state: State, action: PayloadAction<User[]>) => {
             const users = action.payload;
 
             state.users = users;
             state.status.isLoading = false;
         },
-        requestUsersFailed: (state, action: PayloadAction<string>) => {
+        requestUsersFailed: (state: State, action: PayloadAction<string>) => {
             const message = action.payload;
 
             state.status.isError = true;
             state.status.errorMessage = message;
             state.status.isLoading = false;
         },
-        removeUserById: (state, action: PayloadAction<number>) => {
+        removeUserById: (state: State, action: PayloadAction<number>) => {
             const id = action.payload;
             const {users} = state;
 
@@ -53,19 +50,13 @@ export const usersSlice = createSlice({
 
             state.users = filteredUsers;
         },
-        setModalUserInfo: (state, action: PayloadAction<ModalUserInfo>) => {
-            const {address, company} = action.payload;
+        setModalUserInfo: (state: State, action: PayloadAction<User>) => {
+            const user = action.payload;
 
-            state.modalUserInfo = {
-                company: company,
-                address: address
-            }
+            state.selectedUser = user;
         },
-        removeModalUserInfo: (state) => {
-            state.modalUserInfo = {
-                company: null,
-                address: null
-            }
+        removeModalUserInfo: (state: State) => {
+            state.selectedUser = null;
         },
     }
 });
