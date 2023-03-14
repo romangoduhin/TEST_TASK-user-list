@@ -36,7 +36,13 @@ export interface Status {
 
 export type Users = Array<User>;
 
+export interface ModalUserInfo {
+    address: UserAddress | null,
+    company: UserCompany | null
+}
+
 export interface InitialState {
     users: Users | null,
-    status: Status
+    status: Status,
+    modalUserInfo: ModalUserInfo
 }

@@ -1,16 +1,18 @@
 import React from "react";
-import {Id, Props} from "./List.types";
-import Item from "../Item/Item";
+import {HandleClick, Id, Props} from "./List.types";
+import Item from "./Item/Item";
 import styles from "./List.module.scss";
 import {useAppDispatch} from "../../redux/hooks";
 import {removeUserById} from "../../redux/slices/usersSlice";
 import EmptyContent from "./EmptyContent/EmptyContent";
 
 
-function List({data, status, searchValue}: Props) {
+function List({data, status, searchValue, onItemClick}: Props) {
     const dispatch = useAppDispatch();
 
-    function onRemove(id: Id) {
+    function onRemove(e: HandleClick, id: Id) {
+        e.stopPropagation();
+
         dispatch(removeUserById(id))
     }
 
@@ -22,8 +24,13 @@ function List({data, status, searchValue}: Props) {
 
     return (
         <ul className={styles.list}>
-            {data.map(item => <Item searchValue={searchValue} key={item.id} data={item} onRemove={onRemove}/>)}
+            {data.map(item => <Item searchValue={searchValue}
+                                    key={item.id}
+                                    data={item}
+                                    onClick={onItemClick}
+                                    onRemove={onRemove}/>)}
         </ul>
+
     );
 }
 

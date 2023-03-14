@@ -1,6 +1,6 @@
 import type {PayloadAction} from '@reduxjs/toolkit';
 import {createSlice} from '@reduxjs/toolkit';
-import {InitialState, Users} from '../types';
+import {InitialState, ModalUserInfo, Users} from '../types';
 
 
 const initialState: InitialState = {
@@ -9,6 +9,10 @@ const initialState: InitialState = {
         isLoading: false,
         isError: false,
         errorMessage: null
+    },
+    modalUserInfo: {
+        address: null,
+        company: null,
     }
 };
 
@@ -49,8 +53,29 @@ export const usersSlice = createSlice({
 
             state.users = filteredUsers;
         },
+        setModalUserInfo: (state, action: PayloadAction<ModalUserInfo>) => {
+            const {address, company} = action.payload;
+
+            state.modalUserInfo = {
+                company: company,
+                address: address
+            }
+        },
+        removeModalUserInfo: (state) => {
+            state.modalUserInfo = {
+                company: null,
+                address: null
+            }
+        },
     }
 });
 
-export const {requestUsersStart, requestUsersSuccess, requestUsersFailed, removeUserById} = usersSlice.actions;
+export const {
+    requestUsersStart,
+    requestUsersSuccess,
+    requestUsersFailed,
+    removeUserById,
+    setModalUserInfo,
+    removeModalUserInfo
+} = usersSlice.actions;
 export default usersSlice.reducer;

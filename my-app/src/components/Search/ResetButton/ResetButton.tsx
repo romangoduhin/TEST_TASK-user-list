@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./Reset.module.scss";
 import {Props} from "./ResetButton.types";
+import IconButton from "../../IconButton/IconButton";
+import RefreshIcon from "../../../assets/refreshIcon.svg";
 
 
 function ResetButton({onClick}: Props) {
     return (
-        <button onClick={onClick} className={styles.resetButton}>Reset</button>
+        <IconButton width="40px" height="40px" src={RefreshIcon} onClick={onClick}/>
     );
 }
-
 export default ResetButton;
