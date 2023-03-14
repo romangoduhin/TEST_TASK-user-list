@@ -1,6 +1,31 @@
+@import "./src/assets/variables";
+
+
 @mixin flexCenter($direction) {
   display: flex;
   flex-direction: $direction;
   justify-content: center;
   align-items: center;
+}
+
+@mixin customButton($fontSize) {
+  font-weight: 500;
+  font-size: $fontSize;
+  color: $blue;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+@mixin borderedCard() {
+  border: 1px solid $blue;
+  border-radius: 16px;
+  background-color: $lightBlue;
+  cursor: pointer;
+}
+
+@mixin cutToEllipses() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

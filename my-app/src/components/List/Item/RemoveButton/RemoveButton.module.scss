@@ -1,0 +1,19 @@
+@import "../../../../assets/variables";
+@import "../../../../assets/mixins";
+
+
+.removeButton {
+  width: 10%;
+  height: 50%;
+  @include customButton(15px);
+
+  &:hover {
+    color: $darkBlue;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .removeButton {
+    width: 30%;
+  }
+}

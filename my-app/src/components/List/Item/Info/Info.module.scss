@@ -1,0 +1,65 @@
+@import "../../../../assets/mixins";
+
+
+.info {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+
+  div {
+    width: calc(100% / 3);
+    height: 100%;
+    @include flexCenter(column);
+
+    span {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    p {
+      width: 100%;
+      text-align: center;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 25px;
+      @include cutToEllipses();
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .info {
+    width: 50%;
+    height: 150px;
+    flex-direction: column;
+
+    div {
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      p {
+        width: 100%;
+        @include cutToEllipses();
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .info {
+    width: 70%;
+
+    div {
+      p {
+        font-size: 17px;
+        line-height: 20px;
+      }
+    }
+  }
+}
