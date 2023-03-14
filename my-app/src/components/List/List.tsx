@@ -4,6 +4,7 @@ import Item from "../Item/Item";
 import styles from "./List.module.scss";
 import {useAppDispatch} from "../../redux/hooks";
 import {removeUserById} from "../../redux/slices/usersSlice";
+import EmptyContent from "./EmptyContent/EmptyContent";
 
 
 function List({data, status, searchValue}: Props) {
@@ -13,11 +14,11 @@ function List({data, status, searchValue}: Props) {
         dispatch(removeUserById(id))
     }
 
-    if (status.isError) return <div className={styles.emptyContent}>{status.errorMessage}</div>
+    if (status.isError) return <EmptyContent>{status.errorMessage}</EmptyContent>
 
-    if (status.isLoading) return <div className={styles.emptyContent}>Loading...</div>
+    if (status.isLoading) return <EmptyContent>Loading...</EmptyContent>
 
-    if (!data) return <div className={styles.emptyContent}>Nothing to show</div>
+    if (!data) return <EmptyContent>Nothing to show</EmptyContent>
 
     return (
         <ul className={styles.list}>
