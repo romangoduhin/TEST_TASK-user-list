@@ -5,12 +5,7 @@
 .removeButton {
   width: 10%;
   height: 50%;
-  font-weight: 500;
-  font-size: 15px;
-  color: $blue;
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
+  @include customButton(15px);
 
   &:hover {
     color: $darkBlue;

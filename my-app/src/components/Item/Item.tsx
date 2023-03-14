@@ -13,7 +13,7 @@ function Item({searchValue, data, onRemove}: Props) {
         <li className={styles.item}>
             <Avatar/>
             <Info searchValue={searchValue} name={name} username={username} email={email}/>
-            <RemoveButton id={id} onRemove={onRemove}/>
+            <RemoveButton id={id} onClick={onRemove}/>
         </li>
     );
 }

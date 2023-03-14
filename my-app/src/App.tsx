@@ -17,14 +17,10 @@ function App() {
         dispatch(setUsersThunk());
     }, [])
 
-    if (status.isError) return <div>{status.errorMessage}</div>
-
-    if (status.isLoading) return <div>Loading</div>
-
     return (
         <div className={styles.app}>
             <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
-            <List data={users} searchValue={searchValue}/>
+            <List data={users} status={status} searchValue={searchValue}/>
         </div>
     )
 }

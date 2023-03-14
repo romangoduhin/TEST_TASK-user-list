@@ -1,4 +1,6 @@
+export type Id = number;
+
 export interface Props {
-    id: number,
-    onRemove: (id: number) => void
+    id: Id,
+    onClick: (id: Id) => void
 }

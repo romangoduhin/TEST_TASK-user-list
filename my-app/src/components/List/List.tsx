@@ -1,17 +1,21 @@
 import React from "react";
-import {Props} from "./List.types";
+import {Id, Props} from "./List.types";
 import Item from "../Item/Item";
 import styles from "./List.module.scss";
 import {useAppDispatch} from "../../redux/hooks";
 import {removeUserById} from "../../redux/slices/usersSlice";
 
 
-function List({data, searchValue}: Props) {
+function List({data, status, searchValue}: Props) {
     const dispatch = useAppDispatch();
 
-    function onRemove(id: number) {
+    function onRemove(id: Id) {
         dispatch(removeUserById(id))
     }
+
+    if (status.isError) return <div className={styles.emptyContent}>{status.errorMessage}</div>
+
+    if (status.isLoading) return <div className={styles.emptyContent}>Loading...</div>
 
     if (!data) return <div className={styles.emptyContent}>Nothing to show</div>
 
