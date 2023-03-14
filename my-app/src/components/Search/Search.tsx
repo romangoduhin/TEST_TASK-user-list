@@ -3,13 +3,14 @@ import styles from "./Search.module.scss";
 import {Props} from "./Search.types";
 
 
-function Search({value, setValue}: Props) {
+function Search({searchValue, setSearchValue}: Props) {
     return (
         <div className={styles.searchInput}>
-            <input value={value}
-                   onChange={(e) => setValue(e.target.value)}
+            <input value={searchValue}
+                   onChange={(e) => setSearchValue(e.target.value)}
                    placeholder="Type name, username or email"
-                   type="text"/>
+                   type="text"
+            />
         </div>
     );
 }

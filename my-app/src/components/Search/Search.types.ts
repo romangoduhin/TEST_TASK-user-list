@@ -1,4 +1,4 @@
 export interface Props {
-    value: string,
-    setValue: (value: string) => void,
+    searchValue: string,
+    setSearchValue: (value: string) => void,
 }

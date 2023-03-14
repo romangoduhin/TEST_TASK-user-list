@@ -23,8 +23,8 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <Search value={searchValue} setValue={setSearchValue}/>
-            <List value={searchValue} data={users}/>
+            <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
+            <List data={users} searchValue={searchValue}/>
         </div>
     )
 }
