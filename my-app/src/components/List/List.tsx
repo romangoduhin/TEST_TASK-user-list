@@ -1,23 +1,28 @@
 import React from "react";
-import {Props} from "./List.types";
+import {Id, Props} from "./List.types";
 import Item from "../Item/Item";
 import styles from "./List.module.scss";
 import {useAppDispatch} from "../../redux/hooks";
 import {removeUserById} from "../../redux/slices/usersSlice";
+import EmptyContent from "./EmptyContent/EmptyContent";
 
 
-function List({data}: Props) {
+function List({data, status, searchValue}: Props) {
     const dispatch = useAppDispatch();
 
-    function onRemove(id: number) {
+    function onRemove(id: Id) {
         dispatch(removeUserById(id))
     }
 
-    if (!data) return <div>Nothing to show</div>
+    if (status.isError) return <EmptyContent>{status.errorMessage}</EmptyContent>
+
+    if (status.isLoading) return <EmptyContent>Loading...</EmptyContent>
+
+    if (!data) return <EmptyContent>Nothing to show</EmptyContent>
 
     return (
         <ul className={styles.list}>
-            {data.map(item => <Item key={item.id} data={item} onRemove={onRemove}/>)}
+            {data.map(item => <Item searchValue={searchValue} key={item.id} data={item} onRemove={onRemove}/>)}
         </ul>
     );
 }

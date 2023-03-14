@@ -38,7 +38,14 @@ export const usersSlice = createSlice({
             const id = action.payload;
             const {users} = state;
 
+            if (!users) return;
+
             const filteredUsers = users.filter(user => user.id !== id)
+
+            if (filteredUsers.length === 0) {
+                state.users = null;
+                return;
+            }
 
             state.users = filteredUsers;
         },

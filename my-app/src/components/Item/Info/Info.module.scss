@@ -1,0 +1,21 @@
+@import "./src/assets/mixins";
+
+
+.info {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+
+  p {
+    @include flexCenter(row);
+    width: calc(100% / 3);
+    height: 100%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+  }
+}

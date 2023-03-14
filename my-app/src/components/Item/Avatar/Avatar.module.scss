@@ -1,0 +1,12 @@
+@import "./src/assets/mixins";
+
+
+.avatar {
+  width: 10%;
+  height: 100%;
+  @include flexCenter(column);
+
+  img {
+    height: 50%;
+  }
+}
