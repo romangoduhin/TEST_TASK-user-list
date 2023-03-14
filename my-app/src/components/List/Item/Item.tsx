@@ -6,11 +6,11 @@ import Info from "./Info/Info";
 import RemoveButton from "./RemoveButton/RemoveButton";
 
 
-function Item({searchValue, data, onRemove}: Props) {
-    const {name, username, email, id} = data;
+function Item({searchValue, data, onClick, onRemove}: Props) {
+    const {name, username, email, id, company, address} = data;
 
     return (
-        <li className={styles.item}>
+        <li className={styles.item} onClick={() => onClick(company, address)}>
             <Avatar/>
             <Info searchValue={searchValue} name={name} username={username} email={email}/>
             <RemoveButton id={id} onClick={onRemove}/>

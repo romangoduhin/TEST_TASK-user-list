@@ -1,4 +1,4 @@
-@import "../../../assets/variables";
+@import "./src/assets/variables";
 
 
 .item {
@@ -13,6 +13,7 @@
   border: 1px solid $blue;
   border-radius: 16px;
   background-color: $lightBlue;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
